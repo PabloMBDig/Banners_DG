@@ -1,0 +1,89 @@
+
+<body>
+
+<head>
+
+    <style>
+
+        canvas {
+          height: 100% !important;
+          width: 100% !important;
+          z-index: 10;
+        }
+        .Header{
+            background:url(BG2.gif) center center / contain no-repeat;
+            width:300px;
+            height:600px;
+            border: solid grey 1px;
+            cursor:pointer;
+        }
+        
+        </style>
+       
+ 
+</head>
+<div class="Header"  onClick="window.open('http://www.sanytol.com')">
+<div id="canvas">    
+
+</div>
+    
+</div>
+<script>
+      var background = new Image();
+        background.src = "BG_01.png";
+    (function() {
+      
+    
+        function createCanvas(parent, width, height) {
+            var canvas = {};
+            canvas.node = document.createElement('canvas');
+            canvas.context = canvas.node.getContext('2d');
+            canvas.node.width =300;
+            canvas.node.height =600;
+            parent.appendChild(canvas.node);
+            return canvas;
+        }
+    
+        function init(container, width, height, fillColor) {
+            var canvas = createCanvas(container, width, height);
+            var ctx = canvas.context;
+    
+            ctx.fillCircle = function(x, y, radius, fillColor) {
+                this.fillStyle = fillColor;
+                this.beginPath();
+                this.moveTo(x, y);
+                this.arc(x, y, radius, 0, Math.PI * 2, false);
+                this.fill();
+            };
+            ctx.clearTo = function(fillColor) {
+                ctx.drawImage(background,0,0);
+                ctx.fillRect(0, 0, width, height);
+            };
+            background.onload = function(){
+            ctx.drawImage(background,0,0);   
+}
+            ctx.clearTo(fillColor || "#000");
+    
+            canvas.node.onmousemove = function(e) {
+                if (!canvas.isDrawing) {
+                   return;
+                }
+                var x = e.pageX - this.offsetLeft;
+                var y = e.pageY - this.offsetTop;
+                var radius = 40;
+                var fillColor = '#ff0000';
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.fillCircle(x, y, radius, fillColor);
+            };
+            canvas.node.onmouseover = function(e) {
+                canvas.isDrawing = true;
+            };
+        }
+        
+        var container = document.getElementById('canvas');
+        init(container, window.innerWidth, window.innerHeight, '#000');
+    
+    })();
+    </script>
+
+    </body>
