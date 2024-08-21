@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<meta charset="utf-8">
+<title>Banner 300x600</title>
+	<style> 
+		.wrapper{
+			position:relative;
+			width:300px;
+			height:600px;
+			background:white;
+			overflow: hidden;
+			border:1px grey solid;
+		}
+	
+
+
+.inner-header {
+  height:65vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+.content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+		
+		.box-container{
+			position:relative;
+			top:140px;
+			height:300px;
+			width:100%;
+			
+		}
+		.box{
+			position:absolute;
+			height:140px;
+			width:140px;
+			cursor: pointer;
+			z-index: 1;
+			transition: all 0.5s ease-out;
+			opacity:1;
+			
+		}
+		.box:hover{
+			opacity:0.6;
+		}
+		.activeBox{
+			height:100%!important;
+			width:100%!important;
+			left:0!important;
+			top:0!important;
+			bottom:auto!important;
+			right:auto!important;
+			z-index: 30;
+			opacity:1!important;
+		}
+		.box-1{
+			top:7px;
+			bottom:auto;
+			left:7px;
+			right:auto;
+			background:url("Imagen_01.png") center center / contain no-repeat;
+		}
+		.box-2{
+			top:153px;
+			left:7px;
+			right:auto;
+				background:url("Imagen_02.png") center center / contain no-repeat;
+		}
+		.box-3{
+			top:7px;
+			bottom:auto;
+			left:153px;
+				background:url("Imagen_03.png") center center / contain no-repeat;
+		}
+		.box-4{
+			top:153px;
+			left:153px;
+				background:url("Imagen_04.png") center center / contain no-repeat;
+		}
+		
+		.logo{
+			position: relative;
+			width:180px;
+			margin:20px;
+			height:40px;
+			top:0px;
+			background:url("logo.png")left center / contain no-repeat;
+		}
+		.exit{
+			position: absolute;
+			left:0;
+			top:0;
+			width:50px;
+			height:50px;
+			margin:5px;
+			cursor: pointer;
+			background:url("exit.png") center center / contain no-repeat;
+			z-index: 31;
+			opacity:0;
+			pointer-events: none;
+			transition:0.3s all ease;
+			-webkit-filter: drop-shadow(5px 5px 5px #2222);
+  filter: drop-shadow(5px 5px 5px #2222);
+		}
+		.activeExit{
+			opacity:1;
+			pointer-events: all;
+			
+		}
+		#cta{
+			position: absolute;
+			bottom:10px;
+			top:auto;
+			height:65px;
+			width:280px;
+			left:50%;
+			transform: translateX(-50%)scale(1);
+			object-fit: contain;
+			transition: 0.2s all ease;
+			cursor:pointer;
+		}
+		#cta:hover{
+			transform: translateX(-50%)scale(0.9);
+		}
+		#text{
+			position: absolute;
+			top:90px;
+			height:105px;
+			width:300px;
+			left:50%;
+			transform: translateX(-50%);
+			object-fit: contain;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="logo">
+		</div>
+		
+
+<!--Waves Container-->
+<div>
+
+</div>
+		<div class="box-container">
+			<div class="box box-1">
+		</div>
+				<div class="box box-2">
+		</div>
+				<div class="box box-3">
+		</div>	<div class="box box-4">
+		</div>
+			<div class="exit">
+		</div>
+		</div>
+		<img id="text" src="text.png">
+		</img>
+		<img id="cta" src="cta.png">
+		</img>
+		
+		
+	</div>
+	<script>
+		$boxActive = 0; 
+		clicked = false;
+		$( document ).ready(function() {
+    setInterval(Zoom, 4000);
+});
+		
+     //this will attach the class to every target 
+     $(".box").on('click', function (event) {
+		 clicked= true;
+         $target = $(event.target);   
+            $target.addClass('activeBox');
+		 	setTimeout(function(){$(".exit").addClass('activeExit');},500);
+        });
+		
+		
+		$(".exit").on('click', function () {
+			clicked= true;
+			 $target.removeClass('activeBox');
+			$(".exit").removeClass('activeExit');
+		});
+		
+function Zoom (){
+	if (clicked == false){
+	console.log("hola");
+	 $boxActive += 1; 
+	if($boxActive >4) {
+		$boxActive = 1; 
+		
+}
+	console.log($boxActive);
+	 if($boxActive == 1) {$(".box-1").addClass('activeBox'); $target= $(".box-1");};
+	if($boxActive == 2) {$(".box-2").addClass('activeBox');$target= $(".box-2");};
+	if($boxActive == 3) {$(".box-3").addClass('activeBox');$target= $(".box-3");};
+	if($boxActive == 4) {$(".box-4").addClass('activeBox');$target= $(".box-4");};
+		 	setTimeout(function(){$(".exit").addClass('activeExit');},500);
+	setTimeout(Exit,3400);
+	
+}
+	}
+		function Exit() {
+			$(".box").removeClass('activeBox');
+			$(".exit").removeClass('activeExit');
+		}
+	</script>
+	
+</body>
+</html>
