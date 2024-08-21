@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Box Banner</title>
+    <style>
+        #banner {
+            width: 300px;
+            height: 600px;
+            background-color: #f3f3f3;
+            border: 1px solid #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 450px;
+            left: Calc(50% - 50px);
+            cursor: grab;
+			background: url("assets/Drag-Item.png") center center / contain no-repeat;
+					 -webkit-animation: rotates 1.5s ease-in-out infinite alternate;.
+		 -webkit-filter: drop-shadow(0px 0px 5px black);
+         filter: drop-shadow(0px 0px 15px black);
+			transition: 0.2s opacity;
+        }
+        #redArea {
+            width: 30px;
+            height: 10px;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+			transform:translate(-50%,-50%);
+        }
+		#background_01 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+			background: url("assets/background_01.jpg") center center / contain no-repeat;
+        }
+		#background_02 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+			opacity:0;
+			display: block;
+            top: 0px;
+            left: 0px;
+			background: url("assets/background_02.jpg") center center / contain no-repeat;
+			transition: 1s opacity;
+			pointer-events: none;
+        }
+		#cta {
+            width: 290px;
+            height: 50%;
+            position: absolute;
+             top: 74%;
+            left: 50%;
+			display: none;
+			transform:translate(-50%,-50%) scale(0.8);
+				-webkit-animation: beastIN 1s 0.5s ease-out forwards;
+			background: url("assets/cta.png") center center / contain no-repeat;
+			opacity: 0;
+			transition:width 0.2s;
+			cursor: pointer;
+        }
+		#cta:hover{
+			width: 280px;
+		}
+			#beast {
+            width: 200px;
+            height: 50%;
+            position: absolute;
+             top: 44%;
+            left: 50%;
+			transform:translate(-50%,-50%) scale(0.8);
+				-webkit-animation: beastIN 3.5s ease-out forwards;
+			background: url("assets/beast.jpg") center center / contain no-repeat;
+        }
+		
+				@keyframes rotates {
+  0%   {transform:rotateZ(-10deg);}
+  100% {transform:rotateZ(10deg);}
+}
+				
+		-webkit-@keyframes rotates {
+  0%   {transform:rotateZ(-10deg);}
+  100% {transform:rotateZ(10deg);}
+}
+						@keyframes beastIN {
+  0%   {transform:translate(-50%,-50%) scale(0.8);opacity:0}
+  100% {transform:translate(-50%,-50%) scale(1);opacity:1}
+}
+				
+		-webkit-@keyframes beastIN {
+  0%   {transform:translate(-50%,-50%) scale(0.8);opacity:0}
+  100% {transform:translate(-50%,-50%) scale(1);opacity:1}
+}
+		
+			#grab{
+		position: absolute;
+		width:50px;
+		right:0;
+		bottom:-0%;
+			margin:20px;
+		height:50px;
+		opacity:0.8;
+		pointer-events: none;
+		background: url("assets/grab.png") center center / contain no-repeat;
+				animation: beat .85s infinite alternate;
+				transform:translate(0%, 0%) scale(1);
+				transition: 0.2s all;
+		
+		}
+		
+		@keyframes beat{
+	to { transform:translate(0%, 0%) scale(1.3); }
+}
+    </style>
+</head>
+<body>
+    <div id="banner">
+		<div id="background_01"> </div>
+		
+		<div id="beast"> </div>
+        <div id="redArea"></div>
+		<div id="box"> </div>
+		<div id="grab"></div>
+		<div id="background_02"> </div>
+		<div id="cta"> </div>
+		
+    </div>
+
+    <script>
+        const box = document.getElementById('box');
+        const redArea = document.getElementById('redArea');
+        const banner = document.getElementById('banner');
+		const hand = document.getElementById('grab');
+		const BG2 = document.getElementById('background_02');
+		const CTA = document.getElementById('cta');
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        box.addEventListener('mousedown', (e) => {
+            isDragging = true;
+			
+            offsetX = e.clientX - box.offsetLeft;
+            offsetY = e.clientY - box.offsetTop;
+            box.style.cursor = 'grabbing';
+			hand.style.opacity = 0;
+			
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const bannerRect = banner.getBoundingClientRect();
+                const redAreaRect = redArea.getBoundingClientRect();
+                let newLeft = e.clientX - offsetX;
+                let newTop = e.clientY - offsetY;
+
+                // Constrain the box within the banner
+                if (newLeft < 0) newLeft = 0;
+                if (newTop < 0) newTop = 0;
+                if (newLeft + box.clientWidth > bannerRect.width) newLeft = bannerRect.width - box.clientWidth;
+                if (newTop + box.clientHeight > bannerRect.height) newTop = bannerRect.height - box.clientHeight;
+
+                box.style.left = newLeft + 'px';
+                box.style.top = newTop + 'px';
+
+                // Check if the box is within the red area
+                if (newLeft + box.clientWidth > redAreaRect.left - bannerRect.left &&
+                    newTop + box.clientHeight > redAreaRect.top - bannerRect.top &&
+                    newLeft < redAreaRect.right - bannerRect.left &&
+                    newTop < redAreaRect.bottom - bannerRect.top) {
+                    box.style.opacity = '0';
+					BG2.style.opacity = '1';
+					CTA.style.display = 'block';
+					
+					
+                }
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            box.style.cursor = 'grab';
+			hand.style.opacity = 1;
+			
+        });
+    </script>
+</body>
+</html>
