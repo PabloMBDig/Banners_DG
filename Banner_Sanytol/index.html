@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Banner with Clip Path</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .banner {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            background:url("image1.png") center center / contain no-repeat;
+        }
+
+        .red-box {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: red;
+            clip-path: inset(0 100% 0 0); /* Initially clipped */
+            transition: clip-path 0.1s; /* Smooth transition */
+			background:url("image2.png") center center / contain no-repeat;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner" id="banner">
+        <div class="red-box" id="redBox"></div>
+    </div>
+
+    <script>
+        const banner = document.getElementById('banner');
+        const redBox = document.getElementById('redBox');
+
+        banner.addEventListener('mousemove', (event) => {
+            const bannerRect = banner.getBoundingClientRect();
+            const mouseX = event.clientX - bannerRect.left;
+            const clipPercentage = 100 - (mouseX / bannerRect.width) * 100;
+            redBox.style.clipPath = `inset(0 ${clipPercentage}% 0 0)`;
+        });
+
+        banner.addEventListener('mouseleave', () => {
+            redBox.style.clipPath = 'inset(0 100% 0 0)'; // Reset clip when mouse leaves
+        });
+    </script>
+
+</body>
+</html>
