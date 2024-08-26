@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Draggable Box Banner</title>
     <style>
+		body{
+			margin:0!important;
+		}
         #banner {
+			margin:0;
             width: 300px;
             height: 600px;
             background-color: #f3f3f3;
-            border: 1px solid #ccc;
             position: relative;
             overflow: hidden;
         }
@@ -40,7 +43,7 @@
             position: absolute;
             top: 0px;
             left: 0px;
-			background: url("assets/Background_01.jpg") center center / contain no-repeat;
+			background: url("assets/background_01.jpg") center center / contain no-repeat;
         }
 		#background_02 {
             width: 100%;
@@ -50,7 +53,7 @@
 			display: block;
             top: 0px;
             left: 0px;
-			background: url("assets/Background_02.jpg") center center / contain no-repeat;
+			background: url("assets/background_02.jpg") center center / contain no-repeat;
 			transition: 1s opacity;
 			pointer-events: none;
         }
@@ -63,7 +66,7 @@
 			display: none;
 			transform:translate(-50%,-50%) scale(0.8);
 				-webkit-animation: beastIN 1s 0.5s ease-out forwards;
-			background: url("assets/CTA.png") center center / contain no-repeat;
+			background: url("assets/cta.png") center center / contain no-repeat;
 			opacity: 0;
 			transition:width 0.2s;
 			cursor: pointer;
@@ -79,7 +82,7 @@
             left: 50%;
 			transform:translate(-50%,-50%) scale(0.8);
 				-webkit-animation: beastIN 3.5s ease-out forwards;
-			background: url("assets/Beast.jpg") center center / contain no-repeat;
+			background: url("assets/beast.jpg") center center / contain no-repeat;
         }
 		
 				@keyframes rotates {
