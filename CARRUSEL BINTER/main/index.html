@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<head>
+<title>ADFORM STUDIO BUILDER: Responsive Carousel v 1.8</title>
+<meta charset="UTF-8">
+
+<!-- Adform API Script -->
+<script type="text/javascript">
+document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+</script>
+
+<!--#head:common/head-->
+<!--#flexGallery.head:flexGallery/globalhead-->
+<script src="//s1.adform.net/banners/scripts/components/Adform.FlexGallery-1.js"></script>
+<!--#/#--><!--#i3.font-google.head:font/font-google/head-->
+<!--#i3.i4.font-google.head:font-google/head-->
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+<!--#/#-->
+<!--#/#-->
+<!--#/#--><!--#css:common/css-->
+<style>
+/*#i5.shape.css:shape/base/css*/
+#i5 { background-color: #f0f0f0; opacity: 1;
+}
+/*#/#*//*#visibility.css:visibility/globalcss*/
+.visibility-hidden, .visibility-hidden * {
+    visibility: hidden !important;
+}
+/*#/#*//*#flexGallery.css:flexGallery/globalcss*/
+.adf-FlexGallery {
+    position: absolute;
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    -ms-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -ms-touch-action: none;
+    background: transparent;
+}
+.adf-FlexGallery .hidden {
+    visibility: hidden
+}
+.adf-FlexGallery > .adf-Shape {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.adf-FlexGallery-Panel {
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility: visible;
+    backface-visibility:hidden;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-size: cover;
+}
+
+/* nav controls*/
+.adf-FlexGallery .adf-Controls--previous, .adf-FlexGallery .adf-Controls--next, .adf-FlexGallery .adf-Controls--right, .adf-FlexGallery .adf-Controls--left, .adf-FlexGallery .adf-Controls--up, .adf-FlexGallery .adf-Controls--down {
+    background: #fff url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9Ii0zLjU2MiAtMy41NjIgNzEuMTI0IDcxLjEyNCI+DQogIDxkZWZzPg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik00OC4xMjEsNC40MjMgTDIwLjU0NCwzMi4wMDAgTDQ4LjEyMSw1OS41NzcgQzQ4LjkwMiw2MC4zNTggNDguOTAyLDYxLjYyNSA0OC4xMjEsNjIuNDA2IEw0Ny40MTQsNjMuMTEzIEM0Ni42MzMsNjMuODk0IDQ1LjM2Nyw2My44OTQgNDQuNTg2LDYzLjExMyBMMTUuNTk0LDM0LjEyMSBMMTQuODg3LDMzLjQxNCBDMTQuMTA2LDMyLjYzMyAxNC4xMDYsMzEuMzY3IDE0Ljg4NywzMC41ODYgTDQ0LjU4NiwwLjg4NyBDNDUuMzY3LDAuMTA2IDQ2LjYzMywwLjEwNiA0Ny40MTQsMC44ODcgTDQ4LjEyMSwxLjU5NCBDNDguOTAyLDIuMzc1IDQ4LjkwMiwzLjY0MiA0OC4xMjEsNC40MjMgWiIgc3R5bGU9ImZpbGw6ICMwMDVGOEM7DQpmaWxsLXJ1bGU6IGV2ZW5vZGQ7Ii8+DQo8L3N2Zz4=') 50% 50% no-repeat;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    z-index:9999;
+    cursor:pointer;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.adf-FlexGallery .adf-Controls--previous, .adf-FlexGallery .adf-Controls--next, .adf-FlexGallery .adf-Controls--right, .adf-FlexGallery .adf-Controls--left {
+    top: 50%;
+    -webkit-transform: translate3d(0, -50%, 30000000px);
+    -moz-transform: translate3d(0, -50%, 30000000px);
+    -ms-transform: translate3d(0, -50%, 30000000px);
+    -o-transform: translate3d(0, -50%, 30000000px);
+    transform: translate3d(0, -50%, 30000000px);
+    left: 0;
+}
+.adf-FlexGallery .adf-Controls--previous.u-vControls, .adf-FlexGallery .adf-Controls--next.u-vControls, .adf-FlexGallery .adf-Controls--up, .adf-FlexGallery .adf-Controls--down {
+    left: 50%;
+    -webkit-transform: translate3d(-50%, 0, 30000000px) rotate(90deg);
+    -moz-transform: translate3d(-50%, 0, 30000000px) rotate(90deg);
+    -ms-transform: translate3d(-50%, 0, 30000000px) rotate(90deg);
+    -o-transform: translate3d(-50%, 0, 30000000px) rotate(90deg);
+    transform: translate3d(-50%, 0, 30000000px) rotate(90deg);
+    top: 0;
+}
+.adf-FlexGallery .adf-Controls--next, .adf-FlexGallery .adf-Controls--right, .adf-FlexGallery .adf-Controls--down {
+    background: #fff url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9Ii0zLjU2MiAtMy41NjIgNzEuMTI0IDcxLjEyNCI+DQogIDxkZWZzPg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik00OS4xMTMsMzMuNDE0IEw0OC40MDYsMzQuMTIxIEwxOS40MTQsNjMuMTEzIEMxOC42MzMsNjMuODk0IDE3LjM2Nyw2My44OTQgMTYuNTg2LDYzLjExMyBMMTUuODc5LDYyLjQwNiBDMTUuMDk4LDYxLjYyNSAxNS4wOTgsNjAuMzU4IDE1Ljg3OSw1OS41NzcgTDQzLjQ1NiwzMi4wMDAgTDE1Ljg3OSw0LjQyMyBDMTUuMDk4LDMuNjQyIDE1LjA5OCwyLjM3NSAxNS44NzksMS41OTQgTDE2LjU4NiwwLjg4NyBDMTcuMzY3LDAuMTA2IDE4LjYzMywwLjEwNiAxOS40MTQsMC44ODcgTDQ5LjExMywzMC41ODYgQzQ5Ljg5NCwzMS4zNjcgNDkuODk0LDMyLjYzMyA0OS4xMTMsMzMuNDE0IFoiIHN0eWxlPSJmaWxsOiAjMDA1RjhDOw0KZmlsbC1ydWxlOiBldmVub2RkOyIvPg0KPC9zdmc+') 50% 50% no-repeat;
+}
+.adf-FlexGallery .adf-Controls--next, .adf-FlexGallery .adf-Controls--right {
+    left: auto;
+    right: 0;
+}
+.adf-FlexGallery .adf-Controls--next.u-vControls, .adf-FlexGallery .adf-Controls--down {
+    top: auto;
+    bottom: 0;
+}
+.adf-FlexGallery .adf-Controls--previous:hover, .adf-FlexGallery .adf-Controls--next:hover, .adf-FlexGallery .adf-Controls--right:hover, .adf-FlexGallery .adf-Controls--left:hover, .adf-FlexGallery .adf-Controls--up:hover, .adf-FlexGallery .adf-Controls--down:hover {
+    background-color: #5AAAD2;
+}
+.adf-FlexGallery-Panel.no-controls .adf-Controls {
+    display: none;
+}
+
+.adf-FlexGallery-Bullets {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    transform: translate(-50%);
+    z-index: 10000;
+    bottom: 20px;
+    text-align: center;
+}
+.adf-FlexGallery-Bullet {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0px 5px;
+    border-radius: 10px;
+    background: #000000;
+    opacity: 0.3;
+    cursor: pointer;
+}
+.adf-FlexGallery-Bullets > .active {
+    background: #fff;
+    opacity: 1;
+}
+
+/* swipe icon */
+.adf-FlexGallery-Finger {
+    position: absolute;
+    height: 25%;
+    min-height: 50px;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 99999;
+}
+.adf-FlexGallery-Finger.animate {
+    animation-name: pulse-horizontal;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-name: pulse-horizontal;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+}
+.vertical .adf-FlexGallery-Finger.animate {
+    animation-name: pulse-vertical;
+    -webkit-animation-name: pulse-vertical;
+}
+
+@-webkit-keyframes pulse-horizontal {
+    70% {
+        -webkit-transform: rotate(10deg);
+        opacity: 0;
+        left: 50%;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: rotate(-10deg);
+        opacity: 0;
+        left: -50%;
+    }
+}
+@keyframes pulse-horizontal {
+    70% {
+        transform: rotate(10deg);
+        opacity: 0;
+        left: 50%;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-10deg);
+        opacity: 0;
+        left: -50%;
+    }
+}
+@-webkit-keyframes pulse-vertical {
+    70% {
+        transform: rotate(-60deg);
+        opacity: 0;
+        top: 50%
+    }
+    85% {
+        opacity: 1
+    }
+    100% {
+        transform: rotate(-10deg);
+        opacity: 0;
+        top: -50%
+    }
+}
+@keyframes pulse-vertical {
+    70% {
+        transform: rotate(-60deg);
+        opacity: 0;
+        top: 50%
+    }
+    85% {
+        opacity: 1
+    }
+    100% {
+        transform: rotate(-10deg);
+        opacity: 0;
+        top: -50%
+    }
+}
+/*#/#*//*#i5.i6.positioning.css:positioning/base/css.2*/
+#i5 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i8.carousel.css:carousel/base/css.3*/
+.expanding-collapsed > #i8 {
+    overflow: visible;
+}
+/*#/#*//*#i11.i120.panelSlide.css:panelSlide/base/css.3*/
+.expanding-collapsed > #i120 {
+    overflow: visible;
+}
+/*#/#*//*#i122.i123.image.css:image/base/css*/
+#i123 { opacity: 1; }
+/*#/#*//*#i123.i124.positioning.css:positioning/base/css.2*/
+#i123 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i125.i127.image.css:image/base/css*/
+#i127 { opacity: 1; }
+/*#/#*//*#i127.i128.positioning.css:positioning/base/css.2*/
+#i127 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i126.i129.image.css:image/base/css*/
+#i129 { opacity: 1; }
+/*#/#*//*#i129.i130.positioning.css:positioning/base/css.2*/
+#i129 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i131.i132.image.css:image/base/css*/
+#i132 { opacity: 1; }
+/*#/#*//*#i132.i133.positioning.css:positioning/base/css.2*/
+#i132 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i134.i135.image.css:image/base/css*/
+#i135 { opacity: 1; }
+/*#/#*//*#i135.i136.positioning.css:positioning/base/css.2*/
+#i135 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i137.i138.image.css:image/base/css*/
+#i138 { opacity: 1; }
+/*#/#*//*#i138.i139.positioning.css:positioning/base/css.2*/
+#i138 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i120.i121.positioning.css:positioning/base/css.2*/
+#i120 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i16.i140.panelSlide.css:panelSlide/base/css.3*/
+.expanding-collapsed > #i140 {
+    overflow: visible;
+}
+/*#/#*//*#i142.i144.image.css:image/base/css*/
+#i144 { opacity: 1; }
+/*#/#*//*#i144.i145.positioning.css:positioning/base/css.2*/
+#i144 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i143.i146.image.css:image/base/css*/
+#i146 { opacity: 1; }
+/*#/#*//*#i146.i147.positioning.css:positioning/base/css.2*/
+#i146 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i140.i141.positioning.css:positioning/base/css.2*/
+#i140 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i21.i148.panelSlide.css:panelSlide/base/css.3*/
+.expanding-collapsed > #i148 {
+    overflow: visible;
+}
+/*#/#*//*#i150.i154.image.css:image/base/css*/
+#i154 { opacity: 1; }
+/*#/#*//*#i154.i155.positioning.css:positioning/base/css.2*/
+#i154 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i151.i152.image.css:image/base/css*/
+#i152 { opacity: 1; }
+/*#/#*//*#i152.i153.positioning.css:positioning/base/css.2*/
+#i152 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i148.i149.positioning.css:positioning/base/css.2*/
+#i148 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i26.i156.panelSlide.css:panelSlide/base/css.3*/
+.expanding-collapsed > #i156 {
+    overflow: visible;
+}
+/*#/#*//*#i158.i162.image.css:image/base/css*/
+#i162 { opacity: 1; }
+/*#/#*//*#i162.i163.positioning.css:positioning/base/css.2*/
+#i162 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i159.i160.image.css:image/base/css*/
+#i160 { opacity: 1; }
+/*#/#*//*#i160.i161.positioning.css:positioning/base/css.2*/
+#i160 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i156.i157.positioning.css:positioning/base/css.2*/
+#i156 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i31.i164.panelSlide.css:panelSlide/base/css.3*/
+.expanding-collapsed > #i164 {
+    overflow: visible;
+}
+/*#/#*//*#i166.i170.image.css:image/base/css*/
+#i170 { opacity: 1; }
+/*#/#*//*#i170.i171.positioning.css:positioning/base/css.2*/
+#i170 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i167.i168.image.css:image/base/css*/
+#i168 { opacity: 1; }
+/*#/#*//*#i168.i169.positioning.css:positioning/base/css.2*/
+#i168 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i164.i165.positioning.css:positioning/base/css.2*/
+#i164 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i36.i37.image.css:image/base/css*/
+#i37 { opacity: 1; }
+/*#/#*//*#i37.i38.positioning.css:positioning/base/css.2*/
+#i37 { position: absolute; top: 50%; left: 50%; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(-50%, -50%) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(-50%, -50%) translate(0px, 0px) rotate(0deg);
+        transform: translate(-50%, -50%) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i36.i180.panelSlide.css:panelSlide/base/css.3*/
+.expanding-collapsed > #i180 {
+    overflow: visible;
+}
+/*#/#*//*#i182.i186.image.css:image/base/css*/
+#i186 { opacity: 1; }
+/*#/#*//*#i186.i187.positioning.css:positioning/base/css.2*/
+#i186 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i183.i184.image.css:image/base/css*/
+#i184 { opacity: 1; }
+/*#/#*//*#i184.i185.positioning.css:positioning/base/css.2*/
+#i184 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i180.i181.positioning.css:positioning/base/css.2*/
+#i180 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i41.i172.panelSlide.css:panelSlide/base/css.3*/
+.expanding-collapsed > #i172 {
+    overflow: visible;
+}
+/*#/#*//*#i174.i178.image.css:image/base/css*/
+#i178 { opacity: 1; }
+/*#/#*//*#i178.i179.positioning.css:positioning/base/css.2*/
+#i178 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i175.i176.image.css:image/base/css*/
+#i176 { opacity: 1; }
+/*#/#*//*#i176.i177.positioning.css:positioning/base/css.2*/
+#i176 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 230px; height: 190px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i172.i173.positioning.css:positioning/base/css.2*/
+#i172 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 100%; height: 100%;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i8.i9.positioning.css:positioning/base/css.2*/
+#i8 { position: absolute; top: 0%; left: 0%; overflow: hidden; width: 100%; height: 210px;
+        -ms-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(0, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i109.image.css:image/base/css*/
+#i109 { opacity: 1; }
+/*#/#*//*#i109.i110.positioning.css:positioning/base/css.2*/
+#i109 { position: absolute; top: 0%; left: 100%; overflow: hidden; width: 126px; height: 90px;
+        -ms-transform: translate(-100%, 0) translate(-39px, -5px) rotate(0deg);
+        -webkit-transform: translate(-100%, 0) translate(-39px, -5px) rotate(0deg);
+        -moz-transform: translate(-100%, 0) translate(-39px, -5px) rotate(0deg);
+        transform: translate(-100%, 0) translate(-39px, -5px) rotate(0deg);
+}
+/*#/#*//*#i107.button.css:button/base/css*/
+#i107 { position: absolute; cursor: pointer; opacity: 1; background-color: rgb(71,160,26); font-family: "Source Sans Pro"; font-size: 14px; color: #ffffff; font-weight: bold; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,0); border-radius: 0px; border-color: #006496; border-width: 0px; margin:-0px; border-style: solid; }
+#i107:hover { opacity: 1; background-color: rgb(71,160,26); font-family: "Source Sans Pro"; font-size: 14px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,0); border-radius: 0px; border-color: #006496; border-width: 0px; margin:-0px; border-style: solid; }
+#i107:active { opacity: 1; background-color: rgb(71,160,26); font-family: "Source Sans Pro"; font-size: 14px; color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none; text-align: center; line-height: 100%; letter-spacing: 0px; text-shadow: 0px 0px 0px rgba(214,214,214,0); border-radius: 0px; border-color: #006496; border-width: 0px; margin:-0px; border-style: solid; }
+/*#/#*//*#i107.i108.positioning.css:positioning/base/css.2*/
+#i107 { position: absolute; top: 0%; left: 100%; overflow: hidden; width: 113px; height: 34px;
+        -ms-transform: translate(-100%, 0) translate(-424px, 210px) rotate(0deg);
+        -webkit-transform: translate(-100%, 0) translate(-424px, 210px) rotate(0deg);
+        -moz-transform: translate(-100%, 0) translate(-424px, 210px) rotate(0deg);
+        transform: translate(-100%, 0) translate(-424px, 210px) rotate(0deg);
+}
+/*#/#*/
+</style>
+<!--#/#--></head>
+<body>
+<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i3.font.html:font/html-->
+<!--#/#--><!--#i5.shape.html:shape/html-->
+<div id="i5"></div>
+<!--#/#--><!--#i8.carousel.html:carousel/html.3-->
+<div id="i8" class="adf-FlexGallery">
+    <div class="adf-Shape">
+        <!--#i8.i11.carousel-panel.html:carousel-panel/html.1-->
+<div id="i11" class="adf-Panel ">
+    <!--#i11.i120.panelSlide.html:panelSlide/html.3-->
+<div id="i120" class="adf-FlexGallery">
+    <div class="adf-Shape">
+        <!--#i120.i122.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i122" class="adf-Panel ">
+    <!--#i122.i123.image.html:image/html-->
+<img id="i123" src="assets/00-TFN1.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i120.i125.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i125" class="adf-Panel ">
+    <!--#i125.i127.image.html:image/html-->
+<img id="i127" src="assets/00-TFN2.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i120.i126.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i126" class="adf-Panel ">
+    <!--#i126.i129.image.html:image/html-->
+<img id="i129" src="assets/01-TFN3.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i120.i131.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i131" class="adf-Panel ">
+    <!--#i131.i132.image.html:image/html-->
+<img id="i132" src="assets/00-TFN4.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i120.i134.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i134" class="adf-Panel ">
+    <!--#i134.i135.image.html:image/html-->
+<img id="i135" src="assets/00-TFN5.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i120.i137.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i137" class="adf-Panel ">
+    <!--#i137.i138.image.html:image/html-->
+<img id="i138" src="assets/00-TFN6.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i8.i16.carousel-panel.html:carousel-panel/html.1-->
+<div id="i16" class="adf-Panel ">
+    <!--#i16.i140.panelSlide.html:panelSlide/html.3-->
+<div id="i140" class="adf-FlexGallery">
+    <div class="adf-Shape">
+        <!--#i140.i142.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i142" class="adf-Panel ">
+    <!--#i142.i144.image.html:image/html-->
+<img id="i144" src="assets/00-LPA2.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i140.i143.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i143" class="adf-Panel ">
+    <!--#i143.i146.image.html:image/html-->
+<img id="i146" src="assets/00-LPA1.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i8.i21.carousel-panel.html:carousel-panel/html.1-->
+<div id="i21" class="adf-Panel ">
+    <!--#i21.i148.panelSlide.html:panelSlide/html.3-->
+<div id="i148" class="adf-FlexGallery">
+    <div class="adf-Shape">
+        <!--#i148.i150.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i150" class="adf-Panel ">
+    <!--#i150.i154.image.html:image/html-->
+<img id="i154" src="assets/00-ACE1.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i148.i151.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i151" class="adf-Panel ">
+    <!--#i151.i152.image.html:image/html-->
+<img id="i152" src="assets/00-ACE2.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i8.i26.carousel-panel.html:carousel-panel/html.1-->
+<div id="i26" class="adf-Panel ">
+    <!--#i26.i156.panelSlide.html:panelSlide/html.3-->
+<div id="i156" class="adf-FlexGallery">
+    <div class="adf-Shape">
+        <!--#i156.i158.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i158" class="adf-Panel ">
+    <!--#i158.i162.image.html:image/html-->
+<img id="i162" src="assets/00-FUE2.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i156.i159.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i159" class="adf-Panel ">
+    <!--#i159.i160.image.html:image/html-->
+<img id="i160" src="assets/00-FUE1.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i8.i31.carousel-panel.html:carousel-panel/html.1-->
+<div id="i31" class="adf-Panel ">
+    <!--#i31.i164.panelSlide.html:panelSlide/html.3-->
+<div id="i164" class="adf-FlexGallery">
+    <div class="adf-Shape">
+        <!--#i164.i166.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i166" class="adf-Panel ">
+    <!--#i166.i170.image.html:image/html-->
+<img id="i170" src="assets/00-SPC2.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i164.i167.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i167" class="adf-Panel ">
+    <!--#i167.i168.image.html:image/html-->
+<img id="i168" src="assets/00-SPC1.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i8.i36.carousel-panel.html:carousel-panel/html.1-->
+<div id="i36" class="adf-Panel ">
+    <!--#i36.i37.image.html:image/html-->
+<img id="i37" src=""/>
+<!--#/#--><!--#i36.i180.panelSlide.html:panelSlide/html.3-->
+<div id="i180" class="adf-FlexGallery">
+    <div class="adf-Shape">
+        <!--#i180.i182.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i182" class="adf-Panel ">
+    <!--#i182.i186.image.html:image/html-->
+<img id="i186" src="assets/00-VDE2.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i180.i183.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i183" class="adf-Panel ">
+    <!--#i183.i184.image.html:image/html-->
+<img id="i184" src="assets/00-VDE1.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i8.i41.carousel-panel.html:carousel-panel/html.1-->
+<div id="i41" class="adf-Panel ">
+    <!--#i41.i172.panelSlide.html:panelSlide/html.3-->
+<div id="i172" class="adf-FlexGallery">
+    <div class="adf-Shape">
+        <!--#i172.i174.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i174" class="adf-Panel ">
+    <!--#i174.i178.image.html:image/html-->
+<img id="i178" src="assets/00-GMZ2.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i172.i175.panelSlide-panel.html:panelSlide-panel/html.1-->
+<div id="i175" class="adf-Panel ">
+    <!--#i175.i176.image.html:image/html-->
+<img id="i176" src="assets/00-GMZ1.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+</div>
+<!--#/#--><!--#i10.flexGallery.html:flexGallery/html-->
+<!--#/#--><!--#i109.image.html:image/html-->
+<img id="i109" src="assets/logo-white.svg"/>
+<!--#/#--><!--#i107.button.html:button/html-->
+<button id="i107">RESERVA YA ></button>
+<!--#/#--><!--#/#--><!--#js:common/js-->
+<script>
+/*#i5.i6.positioning.js:positioning/base/js.2*/
+bmShow('i5');
+/*#/#*//*#i8.carousel.js:carousel/js.3*/
+var carousel_i8 = new Adform.FlexGallery({
+    elementId: 'i8',
+    panelWidth: '228px',
+    panelHeight: '190px',
+    panelSpacing: '20',
+    paddingForButtons: '40',
+    perspective: '800',
+    animationDirection: 'horizontal',
+    animationDuration: '0.5',
+    autoAnimationEnabled: 'false',
+    autoAnimationDelay: '3',
+    autoAnimationTime: '28',
+    defaultButtons: 'true',
+    panelButtons: 'false',
+    buttonsDirection: 'horizontal',
+    defaultBullets: 'false',
+    allowParentSwipe: 'false',
+    preventPageSwipe: 'true',
+    swipeIconSource: '',
+    swipeIcon: '',
+    zoom: '100',
+    sides: '0'
+});
+
+carousel_i8.init();
+
+/*#/#*//*#i11.i120.panelSlide.js:panelSlide/js.3*/
+var panelSlide_i120 = new Adform.FlexGallery({
+    elementId: 'i120',
+    panelWidth: '100%',
+    panelHeight: '100%',
+    panelSpacing: '0',
+    paddingForButtons: '0',
+    perspective: '800',
+    animationDirection: 'vertical',
+    animationDuration: '0.4',
+    autoAnimationEnabled: 'true',
+    autoAnimationDelay: '3',
+    autoAnimationTime: '28',
+    defaultButtons: 'false',
+    panelButtons: 'false',
+    buttonsDirection: 'vertical',
+    defaultBullets: 'false',
+    allowParentSwipe: 'false',
+    preventPageSwipe: 'true',
+    swipeIconSource: '',
+    swipeIcon: '',
+    zoom: '100',
+    sides: '1'
+});
+
+panelSlide_i120.init();
+
+/*#/#*//*#i122.i123.image.js:image/base/js*/
+
+/*#/#*//*#i123.i124.positioning.js:positioning/base/js.2*/
+bmShow('i123');
+/*#/#*//*#i125.i127.image.js:image/base/js*/
+
+/*#/#*//*#i127.i128.positioning.js:positioning/base/js.2*/
+bmShow('i127');
+/*#/#*//*#i126.i129.image.js:image/base/js*/
+
+/*#/#*//*#i129.i130.positioning.js:positioning/base/js.2*/
+bmShow('i129');
+/*#/#*//*#i131.i132.image.js:image/base/js*/
+
+/*#/#*//*#i132.i133.positioning.js:positioning/base/js.2*/
+bmShow('i132');
+/*#/#*//*#i134.i135.image.js:image/base/js*/
+
+/*#/#*//*#i135.i136.positioning.js:positioning/base/js.2*/
+bmShow('i135');
+/*#/#*//*#i137.i138.image.js:image/base/js*/
+
+/*#/#*//*#i138.i139.positioning.js:positioning/base/js.2*/
+bmShow('i138');
+/*#/#*//*#i120.i121.positioning.js:positioning/base/js.2*/
+bmShow('i120');
+/*#/#*//*#i11.i14.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i11');
+
+el.addEventListener('click', function(e){
+    /*#i14.i15.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i11.i71.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i11');
+
+el.addEventListener('click', function(e){
+    /*#i71.i72.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i16.i140.panelSlide.js:panelSlide/js.3*/
+var panelSlide_i140 = new Adform.FlexGallery({
+    elementId: 'i140',
+    panelWidth: '100%',
+    panelHeight: '100%',
+    panelSpacing: '0',
+    paddingForButtons: '0',
+    perspective: '800',
+    animationDirection: 'vertical',
+    animationDuration: '0.4',
+    autoAnimationEnabled: 'true',
+    autoAnimationDelay: '3',
+    autoAnimationTime: '28',
+    defaultButtons: 'false',
+    panelButtons: 'false',
+    buttonsDirection: 'vertical',
+    defaultBullets: 'false',
+    allowParentSwipe: 'false',
+    preventPageSwipe: 'true',
+    swipeIconSource: '',
+    swipeIcon: '',
+    zoom: '100',
+    sides: '1'
+});
+
+panelSlide_i140.init();
+
+/*#/#*//*#i142.i144.image.js:image/base/js*/
+
+/*#/#*//*#i144.i145.positioning.js:positioning/base/js.2*/
+bmShow('i144');
+/*#/#*//*#i143.i146.image.js:image/base/js*/
+
+/*#/#*//*#i146.i147.positioning.js:positioning/base/js.2*/
+bmShow('i146');
+/*#/#*//*#i140.i141.positioning.js:positioning/base/js.2*/
+bmShow('i140');
+/*#/#*//*#i16.i63.actions.js:actions/base/js.1*/
+/* Name: On Panel on Focus; */
+var el = document.getElementById('i16');
+
+el.addEventListener('panelCentered', function(e){
+    /*#i63.i64.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('playVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+
+if ('panelCentered' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i16.i65.actions.js:actions/base/js.1*/
+/* Name: On Panel on Focus; */
+var el = document.getElementById('i16');
+
+el.addEventListener('panelCentered', function(e){
+    /*#i65.i66.actions-visibility.js:actions-visibility/base/js.1*/
+    // Name: Show 
+    bmShow('');
+/*#/#*/
+});
+
+if ('panelCentered' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i16.i67.actions.js:actions/base/js.1*/
+/* Name: On Panel out of Focus; */
+var el = document.getElementById('i16');
+
+el.addEventListener('panelNotCentered', function(e){
+    /*#i67.i68.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+
+if ('panelNotCentered' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i16.i69.actions.js:actions/base/js.1*/
+/* Name: On Panel out of Focus; */
+var el = document.getElementById('i16');
+
+el.addEventListener('panelNotCentered', function(e){
+    /*#i69.i70.actions-visibility.js:actions-visibility/base/js.1*/
+    // Name: Hide 
+    bmHide('');
+/*#/#*/
+});
+
+if ('panelNotCentered' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i21.i148.panelSlide.js:panelSlide/js.3*/
+var panelSlide_i148 = new Adform.FlexGallery({
+    elementId: 'i148',
+    panelWidth: '100%',
+    panelHeight: '100%',
+    panelSpacing: '0',
+    paddingForButtons: '0',
+    perspective: '800',
+    animationDirection: 'vertical',
+    animationDuration: '0.4',
+    autoAnimationEnabled: 'true',
+    autoAnimationDelay: '3',
+    autoAnimationTime: '28',
+    defaultButtons: 'false',
+    panelButtons: 'false',
+    buttonsDirection: 'vertical',
+    defaultBullets: 'false',
+    allowParentSwipe: 'false',
+    preventPageSwipe: 'true',
+    swipeIconSource: '',
+    swipeIcon: '',
+    zoom: '100',
+    sides: '1'
+});
+
+panelSlide_i148.init();
+
+/*#/#*//*#i150.i154.image.js:image/base/js*/
+
+/*#/#*//*#i154.i155.positioning.js:positioning/base/js.2*/
+bmShow('i154');
+/*#/#*//*#i151.i152.image.js:image/base/js*/
+
+/*#/#*//*#i152.i153.positioning.js:positioning/base/js.2*/
+bmShow('i152');
+/*#/#*//*#i148.i149.positioning.js:positioning/base/js.2*/
+bmShow('i148');
+/*#/#*//*#i21.i116.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i21');
+
+el.addEventListener('click', function(e){
+    /*#i116.i117.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG3')) : window.open(dhtml.getVar('clickTAG3', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i21.i118.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i21');
+
+el.addEventListener('click', function(e){
+    /*#i118.i119.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i26.i156.panelSlide.js:panelSlide/js.3*/
+var panelSlide_i156 = new Adform.FlexGallery({
+    elementId: 'i156',
+    panelWidth: '100%',
+    panelHeight: '100%',
+    panelSpacing: '0',
+    paddingForButtons: '0',
+    perspective: '800',
+    animationDirection: 'vertical',
+    animationDuration: '0.4',
+    autoAnimationEnabled: 'true',
+    autoAnimationDelay: '3',
+    autoAnimationTime: '28',
+    defaultButtons: 'false',
+    panelButtons: 'false',
+    buttonsDirection: 'vertical',
+    defaultBullets: 'false',
+    allowParentSwipe: 'false',
+    preventPageSwipe: 'true',
+    swipeIconSource: '',
+    swipeIcon: '',
+    zoom: '100',
+    sides: '1'
+});
+
+panelSlide_i156.init();
+
+/*#/#*//*#i158.i162.image.js:image/base/js*/
+
+/*#/#*//*#i162.i163.positioning.js:positioning/base/js.2*/
+bmShow('i162');
+/*#/#*//*#i159.i160.image.js:image/base/js*/
+
+/*#/#*//*#i160.i161.positioning.js:positioning/base/js.2*/
+bmShow('i160');
+/*#/#*//*#i156.i157.positioning.js:positioning/base/js.2*/
+bmShow('i156');
+/*#/#*//*#i26.i29.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i26');
+
+el.addEventListener('click', function(e){
+    /*#i29.i30.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG4')) : window.open(dhtml.getVar('clickTAG4', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i26.i75.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i26');
+
+el.addEventListener('click', function(e){
+    /*#i75.i76.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i31.i164.panelSlide.js:panelSlide/js.3*/
+var panelSlide_i164 = new Adform.FlexGallery({
+    elementId: 'i164',
+    panelWidth: '100%',
+    panelHeight: '100%',
+    panelSpacing: '0',
+    paddingForButtons: '0',
+    perspective: '800',
+    animationDirection: 'vertical',
+    animationDuration: '0.4',
+    autoAnimationEnabled: 'true',
+    autoAnimationDelay: '3',
+    autoAnimationTime: '28',
+    defaultButtons: 'false',
+    panelButtons: 'false',
+    buttonsDirection: 'vertical',
+    defaultBullets: 'false',
+    allowParentSwipe: 'false',
+    preventPageSwipe: 'true',
+    swipeIconSource: '',
+    swipeIcon: '',
+    zoom: '100',
+    sides: '1'
+});
+
+panelSlide_i164.init();
+
+/*#/#*//*#i166.i170.image.js:image/base/js*/
+
+/*#/#*//*#i170.i171.positioning.js:positioning/base/js.2*/
+bmShow('i170');
+/*#/#*//*#i167.i168.image.js:image/base/js*/
+
+/*#/#*//*#i168.i169.positioning.js:positioning/base/js.2*/
+bmShow('i168');
+/*#/#*//*#i164.i165.positioning.js:positioning/base/js.2*/
+bmShow('i164');
+/*#/#*//*#i31.i34.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i31');
+
+el.addEventListener('click', function(e){
+    /*#i34.i35.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG5')) : window.open(dhtml.getVar('clickTAG5', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i31.i77.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i31');
+
+el.addEventListener('click', function(e){
+    /*#i77.i78.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i36.i37.image.js:image/base/js*/
+document.getElementById("i37").src = Adform.getAsset(6);
+/*#/#*//*#i37.i38.positioning.js:positioning/base/js.2*/
+bmShow('i37');
+/*#/#*//*#i36.i180.panelSlide.js:panelSlide/js.3*/
+var panelSlide_i180 = new Adform.FlexGallery({
+    elementId: 'i180',
+    panelWidth: '100%',
+    panelHeight: '100%',
+    panelSpacing: '0',
+    paddingForButtons: '0',
+    perspective: '800',
+    animationDirection: 'vertical',
+    animationDuration: '0.4',
+    autoAnimationEnabled: 'true',
+    autoAnimationDelay: '3',
+    autoAnimationTime: '28',
+    defaultButtons: 'false',
+    panelButtons: 'false',
+    buttonsDirection: 'vertical',
+    defaultBullets: 'false',
+    allowParentSwipe: 'false',
+    preventPageSwipe: 'true',
+    swipeIconSource: '',
+    swipeIcon: '',
+    zoom: '100',
+    sides: '1'
+});
+
+panelSlide_i180.init();
+
+/*#/#*//*#i182.i186.image.js:image/base/js*/
+
+/*#/#*//*#i186.i187.positioning.js:positioning/base/js.2*/
+bmShow('i186');
+/*#/#*//*#i183.i184.image.js:image/base/js*/
+
+/*#/#*//*#i184.i185.positioning.js:positioning/base/js.2*/
+bmShow('i184');
+/*#/#*//*#i180.i181.positioning.js:positioning/base/js.2*/
+bmShow('i180');
+/*#/#*//*#i36.i39.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i36');
+
+el.addEventListener('click', function(e){
+    /*#i39.i40.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG6')) : window.open(dhtml.getVar('clickTAG6', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i36.i79.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i36');
+
+el.addEventListener('click', function(e){
+    /*#i79.i80.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i41.i172.panelSlide.js:panelSlide/js.3*/
+var panelSlide_i172 = new Adform.FlexGallery({
+    elementId: 'i172',
+    panelWidth: '100%',
+    panelHeight: '100%',
+    panelSpacing: '0',
+    paddingForButtons: '0',
+    perspective: '800',
+    animationDirection: 'vertical',
+    animationDuration: '0.4',
+    autoAnimationEnabled: 'true',
+    autoAnimationDelay: '3',
+    autoAnimationTime: '28',
+    defaultButtons: 'false',
+    panelButtons: 'false',
+    buttonsDirection: 'vertical',
+    defaultBullets: 'false',
+    allowParentSwipe: 'false',
+    preventPageSwipe: 'true',
+    swipeIconSource: '',
+    swipeIcon: '',
+    zoom: '100',
+    sides: '1'
+});
+
+panelSlide_i172.init();
+
+/*#/#*//*#i174.i178.image.js:image/base/js*/
+
+/*#/#*//*#i178.i179.positioning.js:positioning/base/js.2*/
+bmShow('i178');
+/*#/#*//*#i175.i176.image.js:image/base/js*/
+
+/*#/#*//*#i176.i177.positioning.js:positioning/base/js.2*/
+bmShow('i176');
+/*#/#*//*#i172.i173.positioning.js:positioning/base/js.2*/
+bmShow('i172');
+/*#/#*//*#i41.i44.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i41');
+
+el.addEventListener('click', function(e){
+    /*#i44.i45.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG7')) : window.open(dhtml.getVar('clickTAG7', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i41.i81.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i41');
+
+el.addEventListener('click', function(e){
+    /*#i81.i82.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i8.i9.positioning.js:positioning/base/js.2*/
+bmShow('i8');
+/*#/#*//*#i109.image.js:image/base/js*/
+
+/*#/#*//*#i109.i110.positioning.js:positioning/base/js.2*/
+bmShow('i109');
+/*#/#*//*#i107.i108.positioning.js:positioning/base/js.2*/
+bmShow('i107');
+/*#/#*//*#i107.i111.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i107');
+
+el.addEventListener('click', function(e){
+    /*#i111.i112.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG11')) : window.open(dhtml.getVar('clickTAG11', 'https://www.bintercanarias.com/es'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i107.i113.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i107');
+
+el.addEventListener('click', function(e){
+    /*#i113.i114.actions-trigger.js:actions-trigger/base/js*/
+    // Name: Trigger nothing on 
+    var el = document.getElementById('');
+    var event = document.createEvent('Event');
+    event.initEvent('pauseVideo', false, true);
+    if (el) el.dispatchEvent(event);
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i7.visibility.js:visibility/js*/
+function bmShow(id) {
+    var el = document.getElementById(id);
+    el.classList.remove('visibility-hidden');
+}
+
+function bmHide(id) {
+    var el = document.getElementById(id);
+    el.classList.add('visibility-hidden');
+}
+/*#/#*//*#i115.responsive-externalResize.js:responsive-externalResize/js*/
+dhtml.external && dhtml.external.resize("100%", dhtml.height);
+/*#/#*/
+</script>
+<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i3.font.meta:font/meta*/
+name: Web Font: Source Sans Pro; type: font-google; customName: ;
+/*#/#*//*#i3.i4.font-google.meta:font-google/meta*/
+family: Source Sans Pro;
+/*#/#*//*#i5.shape.meta:shape/meta*/
+name: Background;
+/*#/#*//*#i5.i6.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i8.carousel.meta:carousel/meta.3*/
+name: Carousel;
+customName: 1;
+data: /*!*/{"mode":"simple"}/*!*/;
+/*#/#*//*#i8.i11.carousel-panel.meta:carousel-panel/meta.1*/
+    name: TFN;
+/*#/#*//*#i11.i120.panelSlide.meta:panelSlide/meta.3*/
+name: Panel Slide 1;
+customName: ;
+data: /*!*/{"mode":"simple"}/*!*/;
+/*#/#*//*#i120.i122.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 1;
+/*#/#*//*#i122.i123.image.meta:image/meta*/
+name: 00-TFN1.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i123.i124.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i120.i125.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 2;
+/*#/#*//*#i125.i127.image.meta:image/meta*/
+name: 00-TFN2.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i127.i128.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i120.i126.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 3;
+/*#/#*//*#i126.i129.image.meta:image/meta*/
+name: 01-TFN3.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i129.i130.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i120.i131.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 4;
+/*#/#*//*#i131.i132.image.meta:image/meta*/
+name: 00-TFN4.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i132.i133.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i120.i134.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 5;
+/*#/#*//*#i134.i135.image.meta:image/meta*/
+name: 00-TFN5.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i135.i136.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i120.i137.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 6;
+/*#/#*//*#i137.i138.image.meta:image/meta*/
+name: 00-TFN6.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i138.i139.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i120.i121.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i8.i16.carousel-panel.meta:carousel-panel/meta.1*/
+    name: LPA;
+/*#/#*//*#i16.i140.panelSlide.meta:panelSlide/meta.3*/
+name: Panel Slide 1;
+customName: ;
+data: /*!*/{"mode":"simple"}/*!*/;
+/*#/#*//*#i140.i142.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 1;
+/*#/#*//*#i142.i144.image.meta:image/meta*/
+name: 00-LPA2.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i144.i145.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i140.i143.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 2;
+/*#/#*//*#i143.i146.image.meta:image/meta*/
+name: 00-LPA1.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i146.i147.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i140.i141.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i8.i21.carousel-panel.meta:carousel-panel/meta.1*/
+    name: ACE;
+/*#/#*//*#i21.i148.panelSlide.meta:panelSlide/meta.3*/
+name: Panel Slide 1;
+customName: ;
+data: /*!*/{"mode":"simple"}/*!*/;
+/*#/#*//*#i148.i150.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 1;
+/*#/#*//*#i150.i154.image.meta:image/meta*/
+name: 00-ACE1.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i154.i155.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i148.i151.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 2;
+/*#/#*//*#i151.i152.image.meta:image/meta*/
+name: 00-ACE2.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i152.i153.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i148.i149.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i8.i26.carousel-panel.meta:carousel-panel/meta.1*/
+    name: FUE;
+/*#/#*//*#i26.i156.panelSlide.meta:panelSlide/meta.3*/
+name: Panel Slide 1;
+customName: ;
+data: /*!*/{"mode":"simple"}/*!*/;
+/*#/#*//*#i156.i158.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 1;
+/*#/#*//*#i158.i162.image.meta:image/meta*/
+name: 00-FUE2.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i162.i163.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i156.i159.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 2;
+/*#/#*//*#i159.i160.image.meta:image/meta*/
+name: 00-FUE1.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i160.i161.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i156.i157.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i8.i31.carousel-panel.meta:carousel-panel/meta.1*/
+    name: SPC;
+/*#/#*//*#i31.i164.panelSlide.meta:panelSlide/meta.3*/
+name: Panel Slide 1;
+customName: ;
+data: /*!*/{"mode":"simple"}/*!*/;
+/*#/#*//*#i164.i166.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 1;
+/*#/#*//*#i166.i170.image.meta:image/meta*/
+name: 00-SPC2.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i170.i171.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i164.i167.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 2;
+/*#/#*//*#i167.i168.image.meta:image/meta*/
+name: 00-SPC1.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i168.i169.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i164.i165.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i8.i36.carousel-panel.meta:carousel-panel/meta.1*/
+    name: Carousel Panel 6;
+/*#/#*//*#i36.i37.image.meta:image/meta*/
+name: 00-VDE1.jpg; fileId: 6; sourceTypeId: additionalFiles; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i37.i38.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i36.i180.panelSlide.meta:panelSlide/meta.3*/
+name: Panel Slide 1;
+customName: ;
+data: /*!*/{"mode":"simple"}/*!*/;
+/*#/#*//*#i180.i182.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 1;
+/*#/#*//*#i182.i186.image.meta:image/meta*/
+name: 00-VDE2.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i186.i187.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i180.i183.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 2;
+/*#/#*//*#i183.i184.image.meta:image/meta*/
+name: 00-VDE1.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i184.i185.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i180.i181.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i8.i41.carousel-panel.meta:carousel-panel/meta.1*/
+    name: GMZ;
+/*#/#*//*#i41.i172.panelSlide.meta:panelSlide/meta.3*/
+name: Panel Slide 1;
+customName: ;
+data: /*!*/{"mode":"simple"}/*!*/;
+/*#/#*//*#i172.i174.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 1;
+/*#/#*//*#i174.i178.image.meta:image/meta*/
+name: 00-GMZ2.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i178.i179.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i172.i175.panelSlide-panel.meta:panelSlide-panel/meta.1*/
+    name: Panel Slide Panel 2;
+/*#/#*//*#i175.i176.image.meta:image/meta*/
+name: 00-GMZ1.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i176.i177.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i172.i173.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i8.i9.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i109.image.meta:image/meta*/
+name: Logo; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: 1;
+/*#/#*//*#i109.i110.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i107.button.meta:button/meta*/
+name: Button Text;
+customName: 1;
+/*#/#*//*#i107.i108.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*/--><!--#/#-->

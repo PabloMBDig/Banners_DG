@@ -1,0 +1,27 @@
+{
+    "version": "1.0",
+    "uniqueId": "f7e4c289aec4c0c565911e9362224927",
+    "title": "CARRUSEL BINTER_main_asset",
+    "description": "",
+    "width": 960,
+    "height": 250,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "http:\/\/www.adform.com",
+        "clickTAG2": "http:\/\/www.adform.com",
+        "clickTAG3": "http:\/\/www.adform.com",
+        "clickTAG4": "http:\/\/www.adform.com",
+        "clickTAG5": "http:\/\/www.adform.com",
+        "clickTAG6": "http:\/\/www.adform.com",
+        "clickTAG7": "http:\/\/www.adform.com",
+        "clickTAG8": "http:\/\/www.adform.com",
+        "clickTAG9": "http:\/\/www.adform.com",
+        "clickTAG10": "http:\/\/www.adform.com",
+        "clickTAG11": "https:\/\/www.bintercanarias.com\/es"
+    },
+    "source": "index.html"
+}

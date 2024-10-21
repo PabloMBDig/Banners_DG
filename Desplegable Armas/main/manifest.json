@@ -1,0 +1,17 @@
+{
+    "version": "1.0",
+    "uniqueId": "85b56a6a4ae259c15d555e9e217b2c7a",
+    "title": "Desplegable Armas_main_asset",
+    "description": "",
+    "width": 320,
+    "height": 50,
+    "events": {
+        "enabled": 0,
+        "list": {
+        }
+    },
+    "clicktags": {
+        "clickTAG": "http:\/\/www.adform.com"
+    },
+    "source": "index.html"
+}

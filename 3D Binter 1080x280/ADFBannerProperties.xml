@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>906b539614a995d167e88b1c1098ab0d</uniqueId>
+      <format>Single Expanding</format>
+      <name><![CDATA[3D Binter 1080x280]]></name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>0</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <position>1</position>
+      <expandsTo>up</expandsTo>
+      <autoShowAfter>0</autoShowAfter>
+      <autoCloseAfter>0</autoCloseAfter>
+      <expandDelay>0</expandDelay>
+      <closeOnRollOut>0</closeOnRollOut>
+      <showType>1</showType>
+      <expandTime>0</expandTime>
+      <collapseTime>0</collapseTime>
+      <pushdown>0</pushdown>
+      <collapsedWidth>980</collapsedWidth>
+      <collapsedHeight>120</collapsedHeight>
+      <enableSideKickAnimation>0</enableSideKickAnimation>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName>main</fileName>
+        <clickTagNames>
+          <clickTagName><![CDATA[clickTAG]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG2]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG3]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG4]]></clickTagName>
+        </clickTagNames>
+        <eventIds>
+          <eventId>1</eventId>
+          <eventId>2</eventId>
+          <eventId>3</eventId>
+          <eventId>4</eventId>
+        </eventIds>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc</sourceType>
+        <fileName><![CDATA[Modo Canario otros form-980x120-px.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc1</sourceType>
+        <fileName><![CDATA[1-OK.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc2</sourceType>
+        <fileName><![CDATA[Modo Canario otros form-980x120-px-2.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc3</sourceType>
+        <fileName><![CDATA[Modo Canario otros form-980x120-px-3.jpg]]></fileName>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG2" displayName="clickTAG2"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG3" displayName="clickTAG3"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG4" displayName="clickTAG4"><![CDATA[http://www.adform.com]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents>
+      <bannerEvent name="Swipe Left" id="1"/>
+      <bannerEvent name="Swipe Right" id="2"/>
+      <bannerEvent name="Click Left" id="3"/>
+      <bannerEvent name="Click Right" id="4"/>
+    </bannerEvents>
+    <variables/>
+  </banner>
+</adf>

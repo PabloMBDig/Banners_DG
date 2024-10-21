@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>ADFORM STUDIO BUILDER: Mobile Click To Fullscreen v 1.7</title>
+	<meta charset="UTF-8">
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<style>
+		body {
+			-ms-touch-action: none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		}
+	</style>
+	<script src="mraid.js"></script>
+<!--#head:common/head-->
+<!--#i5.font-google.head:font/font-google/head-->
+<!--#i5.i6.font-google.head:font-google/head-->
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i' rel='stylesheet' type='text/css'>
+<!--#/#-->
+<!--#/#-->
+<!--#/#--><!--#css:common/css-->
+<style>
+/*#i2.mobileFullscreen.css:mobileFullscreen/css*/
+#i2 > .expanding-expanded {
+    display: none;
+}
+/*#/#*//*#visibility.css:visibility/globalcss*/
+.visibility-hidden, .visibility-hidden * {
+    visibility: hidden !important;
+}
+/*#/#*//*#i3.i30.image.css:image/base/css*/
+#i30 { opacity: 1; }
+/*#/#*//*#i30.i31.positioning.css:positioning/base/css.2*/
+#i30 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 320px; height: 50px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*//*#i4.i28.mobileCloseButton.css:mobileCloseButton/base/css.1*/
+#i28 { opacity: 1; cursor:pointer}
+/*#/#*//*#i28.i29.positioning.css:positioning/base/css.2*/
+#i28 { position: absolute; top: 0%; left: 100%; overflow: hidden; width: 64px; height: 64px;
+        -ms-transform: translate(-100%, 0) translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(-100%, 0) translate(0px, 0px) rotate(0deg);
+        -moz-transform: translate(-100%, 0) translate(0px, 0px) rotate(0deg);
+        transform: translate(-100%, 0) translate(0px, 0px) rotate(0deg);
+}
+/*#/#*//*#i4.i32.image.css:image/base/css*/
+#i32 { opacity: 1; }
+/*#/#*//*#i32.i33.positioning.css:positioning/base/css.2*/
+#i32 { position: absolute; top: 0px; left: 0px; overflow: hidden; width: 320px; height: 568px;
+        -ms-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -webkit-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        -moz-transform: translate(0, 0) translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) translate(0, 0) rotate(0deg);
+}
+/*#/#*/
+</style>
+<!--#/#--></head>
+<body>
+<!--#html:common/html--><!--#i1.core.html:core/html--><!--#/#--><!--#i5.font.html:font/html-->
+<!--#/#--><!--#i2.mobileFullscreen.html:mobileFullscreen/html-->
+    <div id="i2">
+        <!--#i2.i3.expanding-collapsed.html:expanding-collapsed/html-->
+<div id="i3" class="expanding-collapsed">
+    <!--#i3.i30.image.html:image/html-->
+<img id="i30" src="assets/Mesa%20de%20trabajo%201.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#--><!--#i2.i4.expanding-expanded.html:expanding-expanded/html-->
+<div id="i4" class="expanding-expanded">
+    <!--#i4.i28.mobileCloseButton.html:mobileCloseButton/html.1-->
+<img id="i28" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAi9JREFUeJzt2bFv00AUx/Ff3KGQAVZE+i8gtf0D2pEZ8TewoIgBhMTC3I0KIlo6UHZElA2QEEKsDLQRS8dODGUKM8mXwWdSR41zdi/yWbyPZEVKnOd7z5c7504yxhhjjDHGGGOMMf+XVqhAgM9pNyXdlbQl6ZakG5KuSxpJ+iVpKOmrpL6kn4uCtVrBmn95QNGxDgyAP/gZu/PXi+JGZU4jrwAvXEJVjIGei9O4AnSAo4qJzzpy8RpTgDXgNFDymVMXN/oCXAWOAyefOXbxoy5Ab0nJZ3oxF2CT6gOer7G7TpB2J0GiTD1dQsxZibtOXEhH6UV3fwc4XHDOE6Dv0Qs6Idod8m7d8Yi3KumepDdzPn8s6Zk7r0jirhcP4J3H7xdgF1gBXs+8/whYBd57xunXnXMOcOLZ8IuK8JD0ae9DiRgndeecA4xKNB7gOZAAt0nn9o8lvz+qO+ecko0HmABbpNPngwrfj+tBgHI9YAJ0gbZ7TYCDkvlH1wN8x4AJcN8l/8m9t++KsF+iANGNAT6zwEXJZ165Irz0LEB0s0DXo9FZt/885/MD/HtCt+6cc/B7EnxbkHzmEPi24JwxsFZ3zjmko/nA486FMCCyScD+DTrfJe0Fjjlrz10nLkwXRNosd0WoTcQLIrYmeO7oAMNAyQ9p2Krw+QXSHpffF/jX7ZtWgOzYoNrO0GZR3BDq2hvc1nRv8Jqk35LOJP2Q9EVN3Bs0xhhjjDHGGGOMaYq/NaxQAUmQBvsAAAAASUVORK5CYII="/>
+<!--#/#--><!--#i4.i32.image.html:image/html-->
+<img id="i32" src="assets/Mesa%20de%20trabajo%202.jpg"/>
+<!--#/#-->
+</div>
+<!--#/#-->
+    </div>
+<!--#/#--><!--#/#--><!--#js:common/js-->
+<script>
+/*#i2.mobileFullscreen.js:mobileFullscreen/js*/
+(function() {
+    if (!mraid) return;
+
+    var $element = document.getElementById('i2');
+    var $default = $element.querySelector('.expanding-collapsed');
+    var $expanded = $element.querySelector('.expanding-expanded');
+
+    if (mraid.getState() === 'loading') {
+        mraid.addEventListener('ready', init);
+    } else {
+        init();
+    }
+
+    function init() {
+        mraid.addEventListener('stateChange', handleStateChangeEvent);
+        mraid.useCustomClose(true);
+
+        $default.addEventListener('click', function() {
+            mraid.expand();
+        });
+
+        $element.addEventListener('collapse', function(e) {
+            e.stopPropagation();
+            if (mraid.getState() !== 'expanded') return;
+            mraid.close();
+        });
+        $element.addEventListener('expand', function(e) {
+            e.stopPropagation();
+            if (mraid.getState() !== 'default') return;
+            mraid.expand();
+        });
+    }
+
+    function handleStateChangeEvent(state) {
+        switch (state) {
+            case 'default':
+                $element.dispatchEvent(makeEvent('collapsed'));
+                $default.style.display = 'block';
+                $expanded.style.display = 'none';
+                break;
+            case 'expanded':
+                $element.dispatchEvent(makeEvent('expanded'));
+                $expanded.style.display = 'block';
+                $default.style.display = 'none';
+                break;
+        }
+    }
+
+    function makeEvent(name) {
+        var event = document.createEvent('Event');
+        event.initEvent(name, true, true);
+        return event;
+    }
+})();
+/*#/#*//*#i3.i30.image.js:image/base/js*/
+
+/*#/#*//*#i30.i31.positioning.js:positioning/base/js.2*/
+bmShow('i30');
+/*#/#*//*#i4.i28.mobileCloseButton.js:mobileCloseButton/base/js.1*/
+
+var closeButton = document.getElementById("i28");
+closeButton.addEventListener("click", function(e) {
+mraid.close();
+e.stopImmediatePropagation();
+});
+/*#/#*//*#i28.i29.positioning.js:positioning/base/js.2*/
+bmShow('i28');
+/*#/#*//*#i4.i32.image.js:image/base/js*/
+
+/*#/#*//*#i32.i33.positioning.js:positioning/base/js.2*/
+bmShow('i32');
+/*#/#*//*#i4.i26.actions.js:actions/base/js.1*/
+/* Name: On Click; */
+var el = document.getElementById('i4');
+
+el.addEventListener('click', function(e){
+    /*#i26.i27.actions-clicktag.js:actions-clicktag/base/js.2*/
+    window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+/*#/#*/
+});
+
+if ('click' === 'click') {
+    el.style.cursor = 'pointer';
+}
+/*#/#*//*#i9.visibility.js:visibility/js*/
+function bmShow(id) {
+    var el = document.getElementById(id);
+    el.classList.remove('visibility-hidden');
+}
+
+function bmHide(id) {
+    var el = document.getElementById(id);
+    el.classList.add('visibility-hidden');
+}
+/*#/#*/
+</script>
+<!--#/#--><!--#meta:common/meta--><!--/*#i1.core.meta:core/meta*/version: 2;/*#/#*//*#i5.font.meta:font/meta*/
+name: Web Font: Source Sans Pro; type: font-google; customName: ;
+/*#/#*//*#i5.i6.font-google.meta:font-google/meta*/
+family: Source Sans Pro;
+/*#/#*//*#i2.mobileFullscreen.meta:mobileFullscreen/meta*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i2.i3.expanding-collapsed.meta:expanding-collapsed/meta*/
+    name: Collapsed state;
+/*#/#*//*#i3.i30.image.meta:image/meta*/
+name: Mesa de trabajo 1.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i30.i31.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*//*#i2.i4.expanding-expanded.meta:expanding-expanded/meta*/
+    name: Expanded state;
+/*#/#*//*#i4.i28.mobileCloseButton.meta:mobileCloseButton/meta.1*/
+name: Close button; fileId: close-button-6; sourceTypeId: defaultImages; autoDimensions: 1;
+customName: 1;
+/*#/#*//*#i28.i29.positioning.meta:positioning/meta.2*/
+data: /*!*/{}/*!*/;
+/*#/#*//*#i4.i32.image.meta:image/meta*/
+name: Mesa de trabajo 2.jpg; fileId: ; sourceTypeId: assetImages; autoDimensions: 1;
+customName: false;
+/*#/#*//*#i32.i33.positioning.meta:positioning/meta.2*/
+data: /*!*/{"keepAspectRatio":true}/*!*/;
+/*#/#*/--><!--#/#-->

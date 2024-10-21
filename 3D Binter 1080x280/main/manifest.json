@@ -1,0 +1,24 @@
+{
+    "version": "1.0",
+    "uniqueId": "906b539614a995d167e88b1c1098ab0d",
+    "title": "3D Binter 1080x280_main_asset",
+    "description": "",
+    "width": 1080,
+    "height": 280,
+    "events": {
+        "enabled": 1,
+        "list": {
+            "1": "Swipe Left",
+            "2": "Swipe Right",
+            "3": "Click Left",
+            "4": "Click Right"
+        }
+    },
+    "clicktags": {
+        "clickTAG": "http:\/\/www.adform.com",
+        "clickTAG2": "http:\/\/www.adform.com",
+        "clickTAG3": "http:\/\/www.adform.com",
+        "clickTAG4": "http:\/\/www.adform.com"
+    },
+    "source": "index.html"
+}

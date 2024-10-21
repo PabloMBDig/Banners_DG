@@ -1,0 +1,31 @@
+/* Main elements styles - Do not remove them, you can edit them as you prefer */
+.adf-Cube {
+    position: absolute;
+
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+
+    -ms-touch-action: none;
+    background: transparent;
+    opacity: 0;
+}
+
+.adf-Cube--tranformed {
+    -webkit-transform: translateZ(-1000px);
+    -moz-transform: translateZ(-1000px);
+    -o-transform: translateZ(-1000px);
+    transform: translateZ(-1000px);
+}
+
+.adf-Cube > .cube-Panel {
+    position: absolute;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+
+    background-size: cover;
+    
+    cursor: pointer;
+}

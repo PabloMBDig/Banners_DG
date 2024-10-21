@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adf>
+  <banner>
+    <details>
+      <uniqueId>f7e4c289aec4c0c565911e9362224927</uniqueId>
+      <format>Standard</format>
+      <name><![CDATA[CARRUSEL BINTER]]></name>
+      <events>1</events>
+    </details>
+    <settings>
+      <responsiveWidth>1</responsiveWidth>
+      <responsiveHeight>0</responsiveHeight>
+      <landingPageTarget>_blank</landingPageTarget>
+    </settings>
+    <assets>
+      <asset>
+        <sourceType>src</sourceType>
+        <fileName>main</fileName>
+        <clickTagNames>
+          <clickTagName><![CDATA[clickTAG]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG2]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG3]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG4]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG5]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG6]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG7]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG8]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG9]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG10]]></clickTagName>
+          <clickTagName><![CDATA[clickTAG11]]></clickTagName>
+        </clickTagNames>
+        <eventIds/>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc</sourceType>
+        <fileName><![CDATA[Mesa de trabajo 1 copia.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc1</sourceType>
+        <fileName><![CDATA[2.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc2</sourceType>
+        <fileName><![CDATA[3.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc3</sourceType>
+        <fileName><![CDATA[4.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc4</sourceType>
+        <fileName><![CDATA[5.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc5</sourceType>
+        <fileName><![CDATA[00-VDE1.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc6</sourceType>
+        <fileName><![CDATA[00-GMZ1.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc7</sourceType>
+        <fileName><![CDATA[8.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc8</sourceType>
+        <fileName><![CDATA[9.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc9</sourceType>
+        <fileName><![CDATA[10.jpg]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>alternateVideoSrc10</sourceType>
+        <fileName><![CDATA[AdformVideo_mp4_640x360.mp4]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>alternateVideoSrc11</sourceType>
+        <fileName><![CDATA[AdformVideo_webm_640x360.webm]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc12</sourceType>
+        <fileName><![CDATA[Slider_image_01.png]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc13</sourceType>
+        <fileName><![CDATA[Slider_image_02.png]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc14</sourceType>
+        <fileName><![CDATA[Slider_image_03.png]]></fileName>
+      </asset>
+      <asset>
+        <sourceType>additionalSrc15</sourceType>
+        <fileName><![CDATA[Slider_image_04.png]]></fileName>
+      </asset>
+    </assets>
+    <bannerClickTags>
+      <bannerClickTag name="clickTAG" displayName="clickTAG"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG2" displayName="clickTAG2"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG3" displayName="clickTAG3"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG4" displayName="clickTAG4"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG5" displayName="clickTAG5"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG6" displayName="clickTAG6"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG7" displayName="clickTAG7"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG8" displayName="clickTAG8"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG9" displayName="clickTAG9"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG10" displayName="clickTAG10"><![CDATA[http://www.adform.com]]></bannerClickTag>
+      <bannerClickTag name="clickTAG11" displayName="clickTAG11"><![CDATA[https://www.bintercanarias.com/es]]></bannerClickTag>
+    </bannerClickTags>
+    <bannerEvents/>
+    <variables/>
+    <video>
+      <details/>
+      <settings>
+        <loop>0</loop>
+        <autoPlay>0</autoPlay>
+        <soundOn>0</soundOn>
+      </settings>
+    </video>
+  </banner>
+</adf>
