@@ -1,0 +1,16 @@
+{
+    "version": "1.0", 
+
+    "title": "970x250 Imaway Seguros", 
+
+    "width" : "970", 
+    "height": "250", 
+
+   
+
+    "clickTAGs": {
+        "clickTAG": "https://www.imaway.es/"
+    },
+
+    "source": "index.html"
+}
