@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Costos de Campañas</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <!-- Barra de Navegación -->
+  <nav class="navbar">
+    <img src="https://www.bintercanarias.com/assets/icons/Logo.svg" alt="Logo Binter Canarias" class="logo">
+    <h1 class="nav-title">Calculadora de Costos de Campañas</h1>
+  </nav>
+
+  <div class="container">
+    <!-- Columna Izquierda: Formulario -->
+    <div class="left-column">
+      <form id="campaignForm">
+        <div class="form-group">
+          <label id="labelBudgetName">Nombre del pedido</label>
+          <input type="text" id="budgetName" placeholder="Introduce el nombre del pedido" required />
+        </div>
+        <div class="form-group">
+          <label id="labelCampaignType">Seleccione el tipo de campaña</label>
+          <div id="campaignTypeSelector">
+            <button type="button" class="campaign-button" id="displayButton" onclick="toggleCampaignType('display')">Display</button>
+            <button type="button" class="campaign-button" id="socialButton" onclick="toggleCampaignType('social')">Social Paid</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label id="labelNumCities" for="numCities">Número de ciudades</label>
+          <input type="number" id="numCities" min="1" value="1" required />
+        </div>
+        <div class="form-group">
+          <label id="labelBriefingDate" for="briefingDate">Fecha de recepción del briefing</label>
+          <input type="date" id="briefingDate" required />
+        </div>
+        <div class="form-group">
+          <label id="labelActivationDate" for="activationDate">Fecha de activación de la campaña</label>
+          <input type="date" id="activationDate" required />
+        </div>
+        <div class="form-group">
+          <label id="labelCreativeSet">¿Es parte de una campaña anterior?</label>
+          <select id="creativeSet">
+            <option value="new">Nueva campaña</option>
+            <option value="bintazo">Bintazo</option>
+            <option value="modoCanario">Modo Canario</option>
+            <option value="colores">Colores</option>
+          </select>
+        </div>
+        <button type="button" onclick="calculateCost()" id="calculateButton">Calcular Costos</button>
+      </form>
+    </div>
+
+    <!-- Columna Derecha: Resultado -->
+    <div class="right-column">
+      <div id="output" class="output" style="display: none;">
+        <h2 id="outputTitle">Resumen de Costos</h2>
+        <div id="costDetails"></div>
+        <h3 id="totalTitle">Costo Total después de Descuentos: <span id="totalCost">€0</span></h3>
+        <h4 id="discountTitle">Descuentos Aplicados: <span id="discountDetails">Ninguno</span></h4>
+        <button onclick="downloadPDF()" id="downloadButton">Descargar PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

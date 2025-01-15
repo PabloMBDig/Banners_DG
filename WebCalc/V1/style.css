@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Costos de Campañas</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+  <header>
+    <h1 id="title">Calculadora de Costos de Campañas</h1>
+    <label for="languageSelect">Idioma:</label>
+    <select id="languageSelect" onchange="switchLanguage()">
+      <option value="es">Español</option>
+      <option value="en">English</option>
+    </select>
+  </header>
+  <form id="campaignForm">
+    <div class="form-group">
+      <label id="labelCampaignType" for="campaignType">Seleccione el tipo de campaña</label>
+      <select id="campaignType" required>
+        <option value="display">Display</option>
+        <option value="social">Social Paid</option>
+        <option value="both">Ambos</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label id="labelNumCities" for="numCities">Número de ciudades</label>
+      <input type="number" id="numCities" min="1" value="1" required />
+    </div>
+    <div class="form-group">
+      <label id="labelBriefingDate" for="briefingDate">Fecha de recepción del briefing</label>
+      <input type="date" id="briefingDate" required />
+    </div>
+    <div class="form-group">
+      <label id="labelActivationDate" for="activationDate">Fecha de activación de la campaña</label>
+      <input type="date" id="activationDate" required />
+    </div>
+    <div class="form-group">
+      <label id="labelCreativeSet" for="creativeSet">¿Es parte de una campaña anterior?</label>
+      <select id="creativeSet">
+        <option value="new">Nueva campaña</option>
+        <option value="bintazo">Bintazo</option>
+        <option value="modoCanario">Modo Canario</option>
+        <option value="colores">Colores</option>
+      </select>
+    </div>
+    <button type="button" onclick="calculateCost()" id="calculateButton">Calcular Costos</button>
+  </form>
+
+  <div id="output" class="output" style="display: none;">
+    <h2 id="outputTitle">Resumen de Costos</h2>
+    <div id="costDetails"></div>
+    <h3 id="totalTitle">Costo Total después de Descuentos: <span id="totalCost">€0</span></h3>
+    <h4 id="discountTitle">Descuentos Aplicados: <span id="discountDetails">Ninguno</span></h4>
+    <button onclick="downloadPDF()" id="downloadButton">Descargar PDF</button>
+  </div>
+
+ 	<script src="script.js"></script>
+</body>
+</html>
