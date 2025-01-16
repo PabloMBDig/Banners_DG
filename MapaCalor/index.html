@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banner with External Heatmap</title>
+  <style>
+    .container {
+      display: flex;
+      align-items: center;
+		flex-direction: column;
+    }
+
+    #main-banner {
+      width: 970px;
+      height: 250px;
+      border: 2px solid #000;
+      background-size: cover;
+      position: relative;
+		
+    }
+
+    #heatmap-container {
+      width: 970px;
+      height: 250px;
+      border: 2px solid #f00;
+      margin-top: 20px;
+      position: relative;
+    }
+	 
+	  #iframe1{
+		  width:100%;
+		  height:100%;
+		  pointer-events: none;
+	  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div id="main-banner" > <iframe id="iframe1" frameBorder="0" width="970px" height="250px" src="https://pablombdig.github.io/Banners_DG/islas/index.html"></iframe></div>
+  <div id="heatmap-container"></div>
+</div>
+
+<!-- Heatmap.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/heatmap.js@2.0.5/build/heatmap.min.js"></script>
+
+<script>
+  // Initialize heatmap in the separate container
+  const heatmapInstance = h337.create({
+    container: document.getElementById('heatmap-container'),
+    radius: 20,
+    maxOpacity: 0.6,
+    minOpacity: 0,
+    blur: 0.85
+  });
+
+  const banner = document.getElementById('main-banner');
+  const heatmapContainer = document.getElementById('heatmap-container');
+
+  banner.addEventListener('mousemove', (event) => {
+    const rect = banner.getBoundingClientRect();
+    const heatRect = heatmapContainer.getBoundingClientRect();
+
+    // Normalize mouse position relative to the banner size
+    const normalizedX = ((event.clientX - rect.left) / rect.width) * heatRect.width;
+    const normalizedY = ((event.clientY - rect.top) / rect.height) * heatRect.height;
+
+    // Add data to the heatmap
+    heatmapInstance.addData({ x: normalizedX, y: normalizedY, value: 1 });
+  });
+</script>
+
+</body>
+</html>
