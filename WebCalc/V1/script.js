@@ -22,7 +22,7 @@ function toggleCampaignType(type) {
   }
 }
 
-// Calcular días hábiles excluyendo fines de semana y festivos
+// Calcular días hábiles
 function calculateWorkdays(startDate, endDate) {
   let workdays = 0;
   let currentDate = new Date(startDate);
@@ -44,7 +44,26 @@ function calculateWorkdays(startDate, endDate) {
   return workdays;
 }
 
-// Calcular costos y aplicar descuentos
+// Calcular descuentos informativos
+function getApprovalDiscount(approvalDays) {
+  if (approvalDays >= 5) return 0.10;
+  if (approvalDays >= 3) return 0.05;
+  return 0;
+}
+
+function getChangesDiscount(changeRounds) {
+  if (changeRounds <= 2) return 0.10;
+  if (changeRounds <= 4) return 0.05;
+  return 0;
+}
+
+function getMarketDiscount(numMarkets) {
+  if (numMarkets >= 10) return 0.10;
+  if (numMarkets >= 5) return 0.05;
+  return 0;
+}
+
+// Calcular costos
 function calculateCost() {
   if (selectedCampaignTypes.length === 0) {
     alert("Por favor selecciona al menos un tipo de campaña.");
@@ -55,7 +74,6 @@ function calculateCost() {
   const numCities = parseInt(document.getElementById("numCities").value);
   const briefingDate = new Date(document.getElementById("briefingDate").value);
   const activationDate = new Date(document.getElementById("activationDate").value);
-  const creativeSet = document.getElementById("creativeSet").value;
 
   // Costos base
   const displayCosts = { master: 300, adaptation: 125, change: 50, sizes: 6 };
@@ -90,7 +108,7 @@ function calculateCost() {
     discountDetails += `Social Paid: €${socialTotal}\n`;
   }
 
-  // Aplicar descuentos
+  // Descuento directo por días hábiles de briefing
   if (workdays >= 10) {
     discount += 0.2;
     discountDetails += "20% descuento por briefing temprano\n";
@@ -99,24 +117,24 @@ function calculateCost() {
     discountDetails += "10% descuento por briefing anticipado\n";
   }
 
-  if (creativeSet !== "new") {
-    discount += 0.05;
-    discountDetails += "5% descuento por usar creatividades previas\n";
-  }
-
-  if (numCities > 10) {
-    discount += 0.1;
-    discountDetails += "10% descuento por más de 10 ciudades\n";
-  }
-
   const totalAfterDiscount = totalCost * (1 - discount);
+
+  // Descuentos informativos
+  const approvalDiscount = getApprovalDiscount(workdays) * totalCost;
+  const changesDiscount = getChangesDiscount(2) * totalCost; // Rondas de cambios ficticias
+  const marketDiscount = getMarketDiscount(numCities) * totalCost;
 
   // Mostrar resultados
   document.getElementById("costDetails").innerHTML = `
     <strong>Nombre del pedido:</strong> ${budgetName || "Sin nombre"}<br>
     <strong>Número de ciudades:</strong> ${numCities}<br>
     <strong>Días hábiles:</strong> ${workdays}<br>
-    <strong>Detalles:</strong><br>${discountDetails.replace(/\n/g, "<br>")}
+    <strong>Detalles:</strong><br>${discountDetails.replace(/\n/g, "<br>")}<br>
+
+    <strong>Descuentos Informativos:</strong><br>
+    - Descuento por aprobación temprana: €${approvalDiscount.toFixed(2)}<br>
+    - Descuento por rondas de cambios: €${changesDiscount.toFixed(2)}<br>
+    - Descuento por volumen de mercados: €${marketDiscount.toFixed(2)}<br>
   `;
   document.getElementById("totalCost").textContent = `€${totalAfterDiscount.toFixed(2)}`;
   document.getElementById("discountDetails").innerHTML = discountDetails.replace(/\n/g, "<br>");
@@ -129,10 +147,7 @@ function downloadPDF() {
   const pdf = new jsPDF();
 
   const budgetName = document.getElementById("budgetName").value.trim() || "Sin nombre";
-  const numCities = document.getElementById("numCities").value;
-  const briefingDate = document.getElementById("briefingDate").value;
-  const activationDate = document.getElementById("activationDate").value;
-  const discountDetails = document.getElementById("discountDetails").innerHTML.replace(/<br>/g, "\n");
+  const costDetails = document.getElementById("costDetails").innerText;
   const totalCost = document.getElementById("totalCost").textContent;
 
   const logoURL = "https://pablombdig.github.io/Banners_DG/logoDG.png";
@@ -140,31 +155,12 @@ function downloadPDF() {
   img.src = logoURL;
 
   img.onload = () => {
-// 1. Logo
-    pdf.addImage(img, "PNG", 10, 10, 50, 15);
-    // Título
+    pdf.addImage(img, "PNG", 10, 10, 40, 15);
     pdf.setFontSize(16);
-    pdf.setFont("Helvetica", "bold");
     pdf.text(`Presupuesto: ${budgetName}`, 70, 20);
-
-    // Información general
     pdf.setFontSize(12);
-    pdf.setFont("Helvetica", "normal");
-    pdf.text(`Número de ciudades: ${numCities}`, 10, 40);
-    pdf.text(`Fecha de briefing: ${briefingDate}`, 10, 50);
-    pdf.text(`Fecha de activación: ${activationDate}`, 10, 60);
-
-    // Detalles
-    pdf.setFont("Helvetica", "bold");
-    pdf.text("Descuentos aplicados:", 10, 80);
-    pdf.setFont("Helvetica", "normal");
-    discountDetails.split("\n").forEach((line, i) => {
-      pdf.text(`- ${line}`, 10, 90 + (i * 10));
-    });
-
-    // Total destacado
-    pdf.setFont("Helvetica", "bold");
-    pdf.setFontSize(24);
+    pdf.text(costDetails.split("\n"), 10, 40);
+    pdf.setFontSize(22);
     pdf.setTextColor(34, 139, 34);
     pdf.text(`TOTAL: ${totalCost}`, 150, 280, { align: "right" });
 

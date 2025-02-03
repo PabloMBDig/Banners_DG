@@ -13,6 +13,7 @@ body {
   display: flex;
   align-items: center;
   padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -53,6 +54,7 @@ body {
 label {
   display: block;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 input, select, button {
@@ -68,6 +70,8 @@ button {
   color: #47a01a;
   font-weight: bold;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
 }
 
 button:hover {
@@ -75,6 +79,7 @@ button:hover {
   color: white;
 }
 
+/* Botones de selección de tipo de campaña */
 .campaign-button {
   margin-right: 10px;
   padding: 10px 20px;
@@ -90,9 +95,22 @@ button:hover {
   color: white;
 }
 
+/* Área de resultados */
 .output {
   background-color: white;
   color: #47a01a;
   padding: 20px;
   border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#discountDetails {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#totalCost {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e6e12;
 }
